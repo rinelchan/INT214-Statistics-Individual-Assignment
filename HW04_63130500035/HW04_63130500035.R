@@ -74,7 +74,14 @@ ggplot(data = comsci,
   theme_bw()                      # make a grid
 
 
-# Part 4: Using command from tidyverse (e.g. stringr, forcats)
+# Part 4: Using command from tidyverse (e.g. forcats, stringr)
+# forcats
+comsci %>%
+  mutate(Type = fct_infreq(Type)) %>%
+  ggplot(aes(x = Type)) + 
+  geom_bar(aes(color=Type)) + 
+  coord_flip()
+
 # stringr
 A <- "INT214 Statistics for IT"
 str_to_lower(A)
@@ -85,10 +92,3 @@ str_c("I", "LOVE", "214")
 
 x <- c("gigabyte", "elegent", "together","Anyway")
 str_sub(x,0,1)
-
-# forcats
-comsci %>%
-  mutate(Type = fct_infreq(Type)) %>%
-  ggplot(aes(x = Type)) + 
-  geom_bar(aes(color=Type)) + 
-  coord_flip()
