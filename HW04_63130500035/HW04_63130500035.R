@@ -55,8 +55,10 @@ comsci %>% filter(Rating == max(Rating));
 comsci %>%  filter(Type=="ebook") %>% dplyr::select(Book_title,Type,Reviews) %>% arrange(Reviews)
 
 # 6. เปลี่ยนชื่อ variable จาก Description เป็น Explanation
-names(comsci)[4] <- 'Explanation'   # rename column
-comsci                              # check the dataset again
+names(comsci)[4] <- 'Explanation'           # rename column
+comsci                                      # check the dataset again
+
+rename(comsci, Explanation = Description)   # rename column (tidyverse package)
 
 
 # Part 3: Visualization with GGplot2
